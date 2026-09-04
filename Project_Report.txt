@@ -1,0 +1,16 @@
+
+AI-Based Vehicle Speedometer Testing System
+
+Detected Speed : 48794
+Reference Speed: 48794
+Error %        : 0.0
+Status         : PASS
+
+Technologies:
+YOLOv8
+EasyOCR
+OpenCV
+Python
+
+Result:
+The system successfully extracted the speedometer reading and validated it against the reference value.
