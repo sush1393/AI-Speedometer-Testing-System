@@ -34,4 +34,5 @@ The system detects digital speedometer from image using YOLOv8, reads the value 
 - Analog speedometer support (optional)
 
 ## Author
-Your Name
+Sushma Boreddy
+
