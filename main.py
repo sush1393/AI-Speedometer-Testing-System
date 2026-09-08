@@ -1,48 +1,78 @@
-
+import cv2
 import easyocr
+import torch
+import numpy as np
 import re
+from ultralytics import YOLO
 
-# Initialize OCR
+# Load your trained model (best.pt)
+model = YOLO("best.pt")
+
+# Initialize EasyOCR
 reader = easyocr.Reader(['en'])
 
-# Image Path
-img_path = input("Enter image path: ")
+def detect_speedometer(img):
+    """Detect digital speedometer region"""
+    results = model(img)
+    for r in results:
+        boxes = r.boxes.xyxy.cpu().numpy()
+        for box in boxes:
+            x1, y1, x2, y2 = map(int, box[:4])
+            cropped = img[y1:y2, x1:x2]
+            return cropped
+    return None
 
-# Read text from image
-result = reader.readtext(img_path, detail=0)
+print("🚗 AI-Based Vehicle Speedometer Testing System (Digital Only)")
+print("Enter image path: ")
 
-print("OCR Raw Output:", result)
+img_path = input("Image path: ").strip()
+
+if not img_path:
+    print("No image path provided!")
+    exit()
+
+img = cv2.imread(img_path)
+if img is None:
+    print("❌ Could not read image!")
+    exit()
+
+# Detect speedometer
+cropped_img = detect_speedometer(img)
+
+if cropped_img is None:
+    print("❌ Speedometer not detected!")
+    exit()
+
+# OCR on cropped image
+result = reader.readtext(cropped_img, detail=0)
 
 # Extract numbers
 numbers = []
-
 for text in result:
     found = re.findall(r'\d+', text)
     numbers.extend(found)
 
-print("Detected Numbers:", numbers)
+print("📸 Detected Numbers:", numbers)
 
 if len(numbers) == 0:
     print("No numbers detected!")
     exit()
 
-# Select largest detected number as speed
 detected_speed = int(max(numbers, key=len))
+print(f"✅ Detected Speed: {detected_speed}")
 
-# Reference speed input
-reference_speed = int(input("Enter reference speed: "))
+reference_speed = int(input("Reference speed (e.g. 80): "))
 
-# Error calculation
-error = abs(reference_speed - detected_speed)
-error_percent = (error / reference_speed) * 100
+error = abs(detected_speed - reference_speed)
+error_percent = (error / reference_speed) * 100 if reference_speed != 0 else 0
 
 status = "PASS" if error_percent < 5 else "FAIL"
 
-print("\n----------------------------")
-print("SPEEDOMETER TEST REPORT")
-print("----------------------------")
-print("Detected Speed :", detected_speed)
-print("Reference Speed:", reference_speed)
-print("Error %        :", round(error_percent, 2))
-print("Status         :", status)
-print("----------------------------")
+print("\n" + "="*40)
+print("🎯 SPEEDOMETER TESTING REPORT")
+print("="*40)
+print(f"Detected Speed   : {detected_speed}")
+print(f"Reference Speed  : {reference_speed}")
+print(f"Error %          : {round(error_percent, 2)}%")
+print(f"Status           : {status}")
+print("="*40)
