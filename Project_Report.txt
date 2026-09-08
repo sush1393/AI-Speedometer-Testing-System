@@ -1,8 +1,7 @@
+AI-Based Vehicle Speedometer Testing System (Digital Speedometers Only)
 
-AI-Based Vehicle Speedometer Testing System
-
-Detected Speed : 48794
-Reference Speed: 48794
+Detected Speed : 120
+Reference Speed: 120
 Error %        : 0.0
 Status         : PASS
 
@@ -13,4 +12,4 @@ OpenCV
 Python
 
 Result:
-The system successfully extracted the speedometer reading and validated it against the reference value.
+The system successfully extracted the digital speedometer reading and validated it against the reference value.
