@@ -1,4 +1,4 @@
-# AI-Based Vehicle Speedometer Testing System (Digital Only)
+# AI-Based Vehicle Speedometer Testing System
 
 ## Project Overview
 This project automates vehicle speedometer testing using Artificial Intelligence and Machine Learning techniques.
