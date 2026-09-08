@@ -1,10 +1,9 @@
-
-# AI-Based Vehicle Speedometer Testing System
+# AI-Based Vehicle Speedometer Testing System (Digital Only)
 
 ## Project Overview
-This project automates vehicle speedometer testing using Artificial Intelligence, Machine Learning, and Image Processing techniques.
+This project automates vehicle speedometer testing using Artificial Intelligence and Machine Learning techniques.
 
-The system reads speedometer values from images, compares them with a reference speed, calculates error percentage, and generates a PASS/FAIL result.
+The system detects digital speedometer from image using YOLOv8, reads the value using EasyOCR, compares with reference speed, calculates error percentage, and generates PASS/FAIL result.
 
 ## Technologies Used
 - Python
@@ -14,9 +13,9 @@ The system reads speedometer values from images, compares them with a reference 
 - NumPy
 
 ## Workflow
-1. Image Input
-2. Image Preprocessing
-3. Speed Reading using OCR
+1. Image Input (Digital Speedometer)
+2. YOLOv8 Detection
+3. OCR Reading
 4. Reference Speed Input
 5. Error Calculation
 6. PASS/FAIL Decision
@@ -32,7 +31,7 @@ The system reads speedometer values from images, compares them with a reference 
 - Real-time video processing
 - Mobile app integration
 - Cloud report storage
-- Analog speedometer support
+- Analog speedometer support (optional)
 
 ## Author
 Your Name
