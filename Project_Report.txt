@@ -1,4 +1,4 @@
-AI-Based Vehicle Speedometer Testing System (Digital Speedometers Only)
+AI-Based Vehicle Speedometer Testing System
 
 Detected Speed : 120
 Reference Speed: 120
