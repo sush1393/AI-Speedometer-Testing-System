@@ -4,3 +4,4 @@ numpy
 ultralytics
 torch
 torchvision
+matplotlib
