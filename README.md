@@ -1,38 +1,38 @@
 # AI-Based Vehicle Speedometer Testing System
 
-## Project Overview
-This project automates vehicle speedometer testing using Artificial Intelligence and Machine Learning techniques.
+## Overview
+This project uses YOLOv8 and OCR techniques to detect and validate vehicle speedometer readings from images.
 
-The system detects digital speedometer from image using YOLOv8, reads the value using EasyOCR, compares with reference speed, calculates error percentage, and generates PASS/FAIL result.
+## Features
+- Speedometer digit detection using YOLOv8
+- OCR-based reading extraction
+- Automated speed validation
+- Custom-trained object detection model
 
 ## Technologies Used
 - Python
-- OpenCV
 - YOLOv8
+- OpenCV
 - EasyOCR
 - NumPy
 
-## Workflow
-1. Image Input (Digital Speedometer)
-2. YOLOv8 Detection
-3. OCR Reading
-4. Reference Speed Input
-5. Error Calculation
-6. PASS/FAIL Decision
-7. Report Generation
+## Dataset
+Custom annotated speedometer dataset containing digits 0–9.
 
-## Output
-- Detected Speed
-- Reference Speed
-- Error Percentage
-- PASS/FAIL Status
+## Results
 
-## Future Enhancements
-- Real-time video processing
-- Mobile app integration
-- Cloud report storage
-- Analog speedometer support (optional)
+| Metric | Score |
+|----------|----------|
+| Precision | 0.61 |
+| Recall | 0.88 |
+| mAP@50 | 0.71 |
+| mAP@50-95 | 0.46 |
 
-## Author
-Sushma Boreddy
+## Sample Detection
 
+![Detection Result](detection_output.jpg)
+
+## Future Improvements
+- Real-time video support
+- Improved OCR accuracy
+- Dashboard integration
